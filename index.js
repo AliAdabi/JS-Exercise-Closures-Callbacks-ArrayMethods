@@ -69,10 +69,7 @@ function processLength(list, callback) {
  * should return 'barbar'.
 */
 function processLastItem(StringList, callback) {
-  return callback(StringList){
-    let strstr = `${StringList[-1]} + ${StringList[-1]}`
-    return strstr;
-  };
+   return callback(StringList[StringList.length - 1])
 }
 
 /**
@@ -92,8 +89,11 @@ function processLastItem(StringList, callback) {
  * [2] Invoking `processSum` passing `[]` and `(num) => num + 1000`,
  * should return 1000.
 */
-function processSum(/* CODE HERE */) {
-  /* CODE HERE */
+function processSum(numberList, callback) {
+  return callback(numberList.reduce((total, number) =>{
+    return total + number
+  },0))
+    
 }
 
 /**
@@ -114,8 +114,8 @@ function processSum(/* CODE HERE */) {
  * [2] Invoking `processProduct` passing 25 and 0 and `(num) => num + 1000`,
  * should return 1000.
 */
-function processProduct(/* CODE HERE */) {
-  /* CODE HERE */
+function processProduct(num1, num2, callback) {
+  
 }
 
 /**
@@ -230,8 +230,11 @@ function getRunnersByTShirtSize(/* CODE HERE */) {
  * @param runners array of runners like the one inside the /data/runners.js file.
  * @returns a number which is the sum of the donations by all runners.
 */
-function tallyUpDonations(/* CODE HERE */) {
-  /* CODE HERE */
+function tallyUpDonations(runners) {
+  return runners.reduce((total,runner) =>{ 
+    return total += runner.donation
+  },0)
+  
 }
 
 /////////////// CLOSURES ///////////////
@@ -252,11 +255,11 @@ function tallyUpDonations(/* CODE HERE */) {
 */
 function counterMaker() {
   // BROKEN CODE STARTS
-  const count = 0;
+  let count = 0;
   function counter() {
-    ++count
+    return count++
   }
-  // BROKEN CODE ENDS
+  return counter
 }
 
 /**
@@ -279,8 +282,15 @@ function counterMaker() {
  * counter() // should return 0
  * etc
 */
-function counterMakerWithLimit(/* CODE HERE */) {
-  /* CODE HERE */
+function counterMakerWithLimit(limit) {
+  let count = 0 ;
+  function counter() {
+      if(count > limit){
+        count = 0 
+      }
+      return count++
+  }
+  return counter
 }
 
 /////////////// END OF CHALLENGE ///////////////
