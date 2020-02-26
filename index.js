@@ -69,7 +69,10 @@ function processLength(list, callback) {
  * should return 'barbar'.
 */
 function processLastItem(StringList, callback) {
-  return callback(StringList[-1]);
+  return callback(StringList){
+    let strstr = `${StringList[-1]} + ${StringList[-1]}`
+    return strstr;
+  };
 }
 
 /**
