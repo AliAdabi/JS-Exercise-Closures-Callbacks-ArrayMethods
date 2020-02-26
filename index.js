@@ -115,7 +115,11 @@ function processSum(numberList, callback) {
  * should return 1000.
 */
 function processProduct(num1, num2, callback) {
-  
+  let prod = [num1, num2];
+  return callback(prod.reduce(function(accumulator, currentValue){
+    return accumulator * currentValue;
+  }))
+
 }
 
 /**
